@@ -1,0 +1,21 @@
+{
+	"name": "ls_postgreSQL",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "PostgreSqlV2",
+		"typeProperties": {
+			"server": "ep-polished-resonance-b3mqt3od-pooler.c-4.ap-southeast-1.aws.neon.tech",
+			"port": 5432,
+			"database": "spotify",
+			"username": "neondb_owner",
+			"sslMode": 2,
+			"authenticationType": "Basic",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJhZGY2OWRkOC1jZDM3LTRjNzktYThhNi03MmU0NjEzMmNjNjIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntimeonpremise",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
