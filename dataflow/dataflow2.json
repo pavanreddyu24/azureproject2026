@@ -1,0 +1,60 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "cdc_ds_blob",
+						"type": "DatasetReference"
+					},
+					"name": "cdccsvblob"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "di_azuresqlDB",
+						"type": "DatasetReference"
+					},
+					"name": "sinkcdc"
+				}
+			],
+			"transformations": [
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          employee_id as short,",
+				"          first_name as string,",
+				"          last_name as string,",
+				"          department as string,",
+				"          salary as integer,",
+				"          operation as string,",
+				"          modified_date as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     enableCdc: true,",
+				"     mode: 'read',",
+				"     skipInitialLoad: false) ~> cdccsvblob",
+				"cdccsvblob alterRow(upsertIf(1==1)) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['employee_id'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkcdc"
+			]
+		}
+	}
+}
