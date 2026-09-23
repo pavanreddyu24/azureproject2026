@@ -1,0 +1,12 @@
+{
+	"name": "ds_sqlserverproject",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_onpremmssi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}

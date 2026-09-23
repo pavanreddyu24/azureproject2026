@@ -1,0 +1,27 @@
+{
+	"name": "ds_postgresql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_postgreSQL",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"table": {
+				"type": "string"
+			},
+			"cdc_col": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "PostgreSqlV2Table",
+		"schema": [],
+		"typeProperties": {
+			"schema": "public",
+			"table": "dimuser"
+		}
+	}
+}
