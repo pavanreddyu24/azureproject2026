@@ -6,7 +6,7 @@
 		"type": "SqlServer",
 		"typeProperties": {
 			"server": "LAPTOP-VUTRCSV2",
-			"database": "Spotify",
+			"database": "EcommerceDW",
 			"encrypt": "mandatory",
 			"trustServerCertificate": true,
 			"authenticationType": "SQL",
@@ -14,7 +14,7 @@
 			"alwaysEncryptedSettings": {
 				"alwaysEncryptedAkvAuthType": "ManagedIdentity"
 			},
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1ZDhlMjhlNi0zMzdjLTQ1N2UtYWMxMi1jMWFlNTRiM2Y4MTUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJkM2RmY2I1Yi1lZGM3LTQ0NjgtODNkZC01ZjYyYWI3OTJkZTEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntimeonpremise",
