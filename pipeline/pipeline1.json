@@ -16,15 +16,12 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataset": {
-						"referenceName": "Binary1",
-						"type": "DatasetReference"
-					},
 					"fieldList": [
 						"childItems"
 					],
 					"storeSettings": {
 						"type": "FileServerReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -75,13 +72,7 @@
 									}
 								},
 								"enableStaging": false
-							},
-							"inputs": [
-								{
-									"referenceName": "ds_onprem",
-									"type": "DatasetReference"
-								}
-							]
+							}
 						}
 					]
 				}

@@ -20,10 +20,6 @@
 						"sqlReaderQuery": "select * from watermarktable where Tablename = 'FactBookings'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "ds_azuresql",
-						"type": "DatasetReference"
 					}
 				}
 			},
@@ -45,10 +41,6 @@
 						"sqlReaderQuery": "select max(booking_date) as newwatermarkvalue from FactBookings;",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "ds_azuresql",
-						"type": "DatasetReference"
 					}
 				}
 			},
@@ -98,28 +90,8 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_azuresql",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "di_azureadls",
-						"type": "DatasetReference"
-					}
-				]
+					"enableStaging": false
+				}
 			},
 			{
 				"name": "Storedprocedure",

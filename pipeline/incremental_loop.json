@@ -38,18 +38,6 @@
 										"type": "JsonReadSettings"
 									}
 								},
-								"dataset": {
-									"referenceName": "ds_adlsbronzejson",
-									"type": "DatasetReference",
-									"parameters": {
-										"container": "bronze2026",
-										"folder": {
-											"value": "@{item().table}_cdc",
-											"type": "Expression"
-										},
-										"file": "cdc.json"
-									}
-								},
 								"firstRowOnly": false
 							}
 						},
@@ -114,39 +102,8 @@
 										"type": "ParquetWriteSettings"
 									}
 								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "ds_sqlserverproject",
-									"type": "DatasetReference"
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "ds_adlsparquet",
-									"type": "DatasetReference",
-									"parameters": {
-										"container": "bronze2026",
-										"folder": {
-											"value": "@item().table",
-											"type": "Expression"
-										},
-										"file": {
-											"value": "@concat(item().table,'_',variables('current'))",
-											"type": "Expression"
-										}
-									}
-								}
-							]
+								"enableStaging": false
+							}
 						},
 						{
 							"name": "Ifincrementalnew",
@@ -179,21 +136,6 @@
 										},
 										"userProperties": [],
 										"typeProperties": {
-											"dataset": {
-												"referenceName": "ds_adlsparquet",
-												"type": "DatasetReference",
-												"parameters": {
-													"container": "bronze2026",
-													"folder": {
-														"value": "@item().table",
-														"type": "Expression"
-													},
-													"file": {
-														"value": "@concat(item().table,'_',variables('current'))",
-														"type": "Expression"
-													}
-												}
-											},
 											"enableLogging": false,
 											"storeSettings": {
 												"type": "AzureBlobFSReadSettings",
@@ -283,35 +225,7 @@
 												}
 											},
 											"enableStaging": false
-										},
-										"inputs": [
-											{
-												"referenceName": "ds_adlsbronzejson",
-												"type": "DatasetReference",
-												"parameters": {
-													"container": "bronze2026",
-													"folder": {
-														"value": "@{item().table}_cdc",
-														"type": "Expression"
-													},
-													"file": "empty.json"
-												}
-											}
-										],
-										"outputs": [
-											{
-												"referenceName": "ds_adlsbronzejson",
-												"type": "DatasetReference",
-												"parameters": {
-													"container": "bronze2026",
-													"folder": {
-														"value": "@item().table",
-														"type": "Expression"
-													},
-													"file": "cdc.json"
-												}
-											}
-										]
+										}
 									}
 								]
 							}

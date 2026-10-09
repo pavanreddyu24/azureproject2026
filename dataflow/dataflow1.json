@@ -5,38 +5,18 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "ds_dfcsv",
-						"type": "DatasetReference"
-					},
 					"name": "dimairlines"
 				},
 				{
-					"dataset": {
-						"referenceName": "ds_dfcsv2",
-						"type": "DatasetReference"
-					},
 					"name": "dimflights"
 				},
 				{
-					"dataset": {
-						"referenceName": "ds_dfcsv3",
-						"type": "DatasetReference"
-					},
 					"name": "dimpassengers"
 				},
 				{
-					"dataset": {
-						"referenceName": "ds_factdf",
-						"type": "DatasetReference"
-					},
 					"name": "factbookings"
 				},
 				{
-					"dataset": {
-						"referenceName": "ds_dfjson",
-						"type": "DatasetReference"
-					},
 					"name": "dimairport"
 				}
 			],
@@ -131,8 +111,7 @@
 				"          country as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> dimairlines",
+				"     validateSchema: false) ~> dimairlines",
 				"source(output(",
 				"          flight_id as short,",
 				"          flight_number as string,",
@@ -140,8 +119,7 @@
 				"          arrival_time as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> dimflights",
+				"     validateSchema: false) ~> dimflights",
 				"source(output(",
 				"          passenger_id as short,",
 				"          full_name as string,",
@@ -150,8 +128,7 @@
 				"          country as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> dimpassengers",
+				"     validateSchema: false) ~> dimpassengers",
 				"source(output(",
 				"          booking_id as short,",
 				"          passenger_id as short,",
@@ -165,8 +142,7 @@
 				"          checkin_status as boolean",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> factbookings",
+				"     validateSchema: false) ~> factbookings",
 				"source(output(",
 				"          airport_id as short,",
 				"          airport_name as string,",
@@ -174,9 +150,7 @@
 				"          country as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine') ~> dimairport",
+				"     validateSchema: false) ~> dimairport",
 				"dimairlines derive(country = upper(country)) ~> derivedColumncountry",
 				"dimflights select(mapColumn(",
 				"          flight_id,",
