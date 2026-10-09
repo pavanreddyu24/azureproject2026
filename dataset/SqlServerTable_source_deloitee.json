@@ -1,0 +1,33 @@
+{
+	"name": "SqlServerTable_source_deloitee",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_onpremmssi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Brand_1",
+				"type": "varchar"
+			},
+			{
+				"name": "Brand_2",
+				"type": "varchar"
+			},
+			{
+				"name": "Brand_3",
+				"type": "varchar"
+			},
+			{
+				"name": "Winner",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Delivery_Partner"
+		}
+	}
+}
